@@ -5,15 +5,18 @@ import '../data/network/network_api_service.dart';
 import '../utils/app_url.dart';
 
 class LiveClassRepo {
+
   final BaseApiServices _apiServices = NetworkApiService();
 
   Future<dynamic> liveClassAPi() async {
     try {
       dynamic response =
-          await _apiServices.getGetApiResponse(AppUrl.liveClassEndPoint);
+      await _apiServices.getGetApiResponse(AppUrl.liveClassEndPoint);
       return response = LiveClassModel.fromJson(response);
     } catch (e) {
       rethrow;
     }
   }
+
+
 }

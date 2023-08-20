@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../widgets/home_post_card.dart';
+import 'package:gujarati_samaj_paris/widgets/player/feed_tile1.dart';
+import 'package:gujarati_samaj_paris/widgets/player/feed_tile2.dart';
 
 class FeedScreen extends StatelessWidget {
   const FeedScreen({Key? key}) : super(key: key);
@@ -22,12 +23,23 @@ class FeedScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView.builder(
-          itemCount: listUrl.length,
-          itemBuilder: (_, index) {
-            return HomePostCardTrial(url: listUrl[index]);
-          }),
-    );
+    return Scaffold(body: feedStyle2());
+  }
+
+  Widget feedStyle1() {
+    return ListView.builder(
+        itemCount: listUrl.length,
+        itemBuilder: (_, index) {
+          return FeedTile1(url: listUrl[index]);
+        });
+  }
+
+  Widget feedStyle2() {
+    return PageView.builder(
+        itemCount: listUrl.length,
+        scrollDirection: Axis.vertical,
+        itemBuilder: (_, index) {
+          return FeedTile2(url: listUrl[index]);
+        });
   }
 }

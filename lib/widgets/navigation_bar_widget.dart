@@ -45,10 +45,12 @@ class NavigationBarWidget extends StatelessWidget {
                     padding:  EdgeInsets.symmetric(horizontal: 15),
                     child: Column(
                       children: [
-                        navigationItem('EVENT & FEST', 'assets/menu_items/event.png', context, 0.1, () {
+                        navigationItem('EVENT', 'assets/menu_items/event.png', context, 0.1, () {
                           Navigator.pushNamed(context, RoutesName.eventScreen);
                         }),
-                        // navigationItem('GALLERY', 'assets/menu_items/gallery.png', context, 0.11, () {}),
+                        navigationItem('FESTIVAL', 'assets/menu_items/gallery.png', context, 0.11, () {
+                          Navigator.pushNamed(context, RoutesName.eventScreen);
+                        }),
                         navigationItem('PHOTOS & VIDEOS', 'assets/menu_items/golden_book.png', context, 0.08, () {
                           Navigator.pushNamed(context, RoutesName.photosVideosScreen);
                         }),
@@ -64,6 +66,10 @@ class NavigationBarWidget extends StatelessWidget {
                         navigationItem('VENDOR AND LISTING', 'assets/menu_items/event.png', context, .04, () {
                           Navigator.pushNamed(context, RoutesName.vendorListingScreen);
                         }),
+                        navigationItem('JOB LISTING', 'assets/menu_items/event.png', context, .04, () {
+                          Navigator.pushNamed(context, RoutesName.vendorListingScreen);
+                        }),
+
                         navigationItem('BHAJANS & MUSICS', 'assets/menu_items/event.png', context, .06, () {
                           Navigator.pushNamed(context, RoutesName.bhajanMusicScreen);
                         }),

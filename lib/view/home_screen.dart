@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget {
                   textStyle: const TextStyle(
                       // fontWeight: FontWeight.bold,
                       fontSize: 28,
-                      color: Color(0xffA5DEFF))),
+                      color: Colors.black54)),
               textStyle2: GoogleFonts.lato(
                   textStyle: const TextStyle(
                       fontSize: 26,

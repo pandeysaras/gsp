@@ -28,7 +28,7 @@ class _SignupScreenState extends State<SignupScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Create Account'),
+        title: Text('Edit Profile'),
         foregroundColor: Colors.white,
         backgroundColor: ColorConstant.defaultColor,
       ),
@@ -121,7 +121,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 signupFields('Commune', 'Commune'),
                 signupFields('Blood group', 'Blood group'),
                 SizedBox(height: 15,),
-                PrimaryButton(onTap: (){}, child: Text('Sign in'), width: MediaQuery.of(context).size.width,)
+                PrimaryButton(onTap: (){}, child: Text('Update'), width: MediaQuery.of(context).size.width,)
               ],
             ),
           ),

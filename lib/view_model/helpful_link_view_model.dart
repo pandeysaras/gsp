@@ -23,7 +23,9 @@ class HelpfulLinkViewModel with ChangeNotifier {
   fetchHelpfulLinkAPi()  {
     setHelpfulLinks(ApiResponse.loading());
     _myRepo.helpfulLinkAPi().then((value) {
-      log("success");
+      log("success helpful");
+      log(value["data"]);
+      
       setHelpfulLinks(ApiResponse.completed(value));
     }).onError((error, stackTrace) {
       setHelpfulLinks(ApiResponse.error(error.toString()));

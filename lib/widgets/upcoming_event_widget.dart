@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gujarati_samaj_paris/utils/color_constant.dart';
 
 import '../utils/routes/routes_name.dart';
 
@@ -48,7 +49,7 @@ class UpcomingEventWidget extends StatelessWidget {
               height: 200,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Colors.black),
+                  color: ColorConstant.defaultColor),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -59,7 +60,7 @@ class UpcomingEventWidget extends StatelessWidget {
                       Text(text3!,
                           style: GoogleFonts.lato(
                               textStyle: const TextStyle(
-                                  fontSize: 18, color: Color(0xffA5DEFF)))),
+                                  fontSize: 18, color: Colors.black54))),
                 ],
               ),
             ),

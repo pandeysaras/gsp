@@ -1,4 +1,6 @@
-import 'package:gujarati_samaj_paris/model/live_class_model.dart';
+import 'dart:developer';
+
+import 'package:gujarati_samaj_paris/model/helpful_links_model.dart';
 
 import '../data/network/base_api_services.dart';
 import '../data/network/network_api_service.dart';
@@ -12,9 +14,12 @@ class HelpfulLinkRepo {
     try {
       dynamic response =
       await _apiServices.getGetApiResponse(AppUrl.helpfulLinkEndPoint);
-      return response = LiveClassModel.fromJson(response);
+      return
+          HelpfulLinksModel.fromJson(response);
     } catch (e) {
+      log(e.toString());
       rethrow;
+
     }
   }
 

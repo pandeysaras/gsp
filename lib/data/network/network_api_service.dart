@@ -106,7 +106,7 @@ class NetworkApiService extends BaseApiServices {
         body: data,
         headers: {
           //TODO: api key to be stored in server (for security)
-          "APIKey": "5567GGH67225HYVGG",
+          // "APIKey": "5567GGH67225HYVGG",
           "Accept": "application/json",
           "Access-Control-Allow-Origin": "*",
           'Accept': '*/*',

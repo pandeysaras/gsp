@@ -1,8 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gujarati_samaj_paris/utils/color_constant.dart';
 import 'package:gujarati_samaj_paris/utils/routes/routes_name.dart';
 import 'package:gujarati_samaj_paris/view/conversation_screen.dart';
 import 'package:gujarati_samaj_paris/view/drawer_screens/event_screen.dart';
+import 'package:gujarati_samaj_paris/view/drawer_screens/my_id_card.dart';
 import 'package:gujarati_samaj_paris/view/feed_screen.dart';
 import 'package:gujarati_samaj_paris/view/home_screen.dart';
 import 'package:gujarati_samaj_paris/widgets/app_bar_widget.dart';
@@ -27,7 +29,7 @@ class _HomeScreenLayoutState extends State<HomeScreenLayout> {
       // MatchesTab(),
       FeedScreen(),
       ConversationScreen(),
-      MyEventsScreen()
+      MyIdCard()
     ];
 
     return options.elementAt(_selectedIndex);
@@ -114,25 +116,34 @@ Widget bottomNavBar(VoidCallback tap1, VoidCallback tap2, VoidCallback tap3, Voi
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          bootomNavIcon(Icons.home, tap1),
-         bootomNavIcon(Icons.festival, tap2),
-          bootomNavIcon(Icons.feed, tap3),
-          bootomNavIcon(Icons.menu, tap4)
+          SizedBox(width: 1,),
+          bootomNavIcon(Icons.home_outlined, tap1, 'Home'),
+         bootomNavIcon(Icons.filter, tap2, 'Feed'),
+          bootomNavIcon(CupertinoIcons.chat_bubble_2, tap3, 'Chat'),
+          bootomNavIcon(Icons.perm_identity, tap4, 'Id Card'),
+          SizedBox(width: 1,),
         ],
       ),
     ),
   );
 }
 
-Widget bootomNavIcon(IconData iconData, VoidCallback onPress) {
-  return IconButton(
-    onPressed: onPress,
-    icon: Icon(
-      iconData, color: Colors.white, size: 30,
-    ),
-    // style: IconButton.styleFrom(
-    //     padding: const EdgeInsets.all(12),
-    //     backgroundColor: Colors.blue.shade700,
-    //     foregroundColor: Colors.white),
+Widget bootomNavIcon(IconData iconData, VoidCallback onPress, String title) {
+  return Column(
+    children: [
+      GestureDetector(
+        onTap: onPress,
+        child: Icon(
+            iconData, color: Colors.white, size: 30,
+
+          // style: IconButton.styleFrom(
+          //     padding: const EdgeInsets.all(12),
+          //     backgroundColor: Colors.blue.shade700,
+          //     foregroundColor: Colors.white),
+        ),
+      ),
+      Text(title, style: TextStyle(fontSize: 10, color: Colors.white
+      ),)
+    ],
   );
 }

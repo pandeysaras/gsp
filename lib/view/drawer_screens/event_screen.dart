@@ -39,21 +39,22 @@ class _EventScreenState extends State<EventScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            ListTile(
-              title: Text('My Events'),
-              trailing: IconButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, RoutesName.myEventScreen);
-                  },
-                  icon: Icon(Icons.arrow_forward_outlined)),
-            ),
+            // ListTile(
+            //   title: Text('My Events'),
+            //   trailing: IconButton(
+            //       onPressed: () {
+            //         Navigator.pushNamed(context, RoutesName.myEventScreen);
+            //       },
+            //       icon: Icon(Icons.arrow_forward_outlined)),
+            // ),
+            SizedBox(height: 20,),
             Consumer<EventsViewModel>(builder: (context, value, _) {
               switch (value.eventsList.status) {
                 case Status.loading:
-                  return CircularProgressIndicator();
+                  return Center(child: CircularProgressIndicator());
                 case Status.error:
                   return Center(
-                    child: Text(value.eventsList.message.toString()),
+                    child: Text('Sorry for the inconvenience!'),
                   );
                 case Status.completed:
                   return Expanded(

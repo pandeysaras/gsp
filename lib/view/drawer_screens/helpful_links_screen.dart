@@ -33,7 +33,7 @@ class _HelpfulLinksState extends State<HelpfulLinks> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<EventsViewModel>().fetchEventsAPi();}); // asking for location permission and setting the state
+      context.read<HelpfulLinkViewModel>().fetchHelpfulLinkAPi();}); // asking for location permission and setting the state
 
       super.initState();
   }
@@ -47,6 +47,7 @@ class _HelpfulLinksState extends State<HelpfulLinks> {
         backgroundColor: ColorConstant.defaultColor,
       ),
       body: SafeArea(
+
         child: Padding(
             padding: const EdgeInsets.all(8.0),
             child:
@@ -59,7 +60,11 @@ class _HelpfulLinksState extends State<HelpfulLinks> {
                     child: Text('Sorry for the inconvenence!'),
                   );
                 case Status.completed:
-                  return  ListView.builder(
+                  return
+                    value.helpfulLinkList.message == "Data not found" ?
+                        Text('Nothing for now!')
+                        :
+                    ListView.builder(
                       itemCount: value.helpfulLinkList.data!.data!.length,
                       itemBuilder: (context, index) {
                         return listItem(() {

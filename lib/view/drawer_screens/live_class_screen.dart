@@ -17,20 +17,22 @@ class LiveClassScreen extends StatefulWidget {
 }
 
 class _LiveClassScreenState extends State<LiveClassScreen> {
+
   launchLink(String classLink) {
     try {
-      launchUrlString(classLink, mode: LaunchMode.externalApplication);
+      launchUrlString(classLink,
+          mode: LaunchMode.externalApplication);
     } catch (e) {
       log(e.toString());
     }
   }
+
 
   @override
   void initState() {
     context.read<LiveClassViewModel>().fetchLiveClassAPi();
     super.initState();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,32 +44,32 @@ class _LiveClassScreenState extends State<LiveClassScreen> {
       ),
       body: SafeArea(
         child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Consumer<LiveClassViewModel>(builder: (context, value, _) {
-              switch (value.classLinkList.status) {
-                case Status.loading:
-                  return const CircularProgressIndicator();
-                case Status.error:
-                  return Center(
-                    child: Text(value.classLinkList.message.toString()),
-                  );
-                case Status.completed:
-                  return ListView.builder(
-                      itemCount: value.classLinkList.data!.data!.length,
-                      itemBuilder: (context, index) {
-                        return listItem(() {
-                          launchUrlString(value
-                              .classLinkList.data!.data![index].link
-                              .toString());
-                        },
-                            value.classLinkList.data!.data![index].title
-                                .toString());
-                      });
+          padding: const EdgeInsets.all(8.0),
+          child:
+          Consumer<LiveClassViewModel>(builder: (context, value, _) {
+            switch (value.classLinkList.status) {
+              case Status.loading:
+                return CircularProgressIndicator();
+              case Status.error:
+                return Center(
+                  child: Text(value.classLinkList.message.toString()),
+                );
+              case Status.completed:
+                return  ListView.builder(
+            itemCount: value.classLinkList.data!.data!.length,
+            itemBuilder: (context, index) {
+            return listItem(() {
+              launchUrlString(value.classLinkList.data!.data![index].link.toString());
+            },
+            value.classLinkList.data!.data![index].title.toString()
+            );
+            });
 
-                default:
-                  return Container();
-              }
-            })),
+              default:
+                return Container();
+            }
+          })
+        ),
       ),
     );
   }
@@ -77,16 +79,12 @@ Widget listItem(VoidCallback onPress, String text) {
   return Padding(
     padding: const EdgeInsets.only(bottom: 10),
     child: ListTile(
-      title: Text(
-        text,
-        style: const TextStyle(color: Colors.white),
-      ),
+      title: Text(text, style:  TextStyle(
+        color: Colors.white
+      ),),
       trailing: IconButton(
           onPressed: onPress,
-          icon: const Icon(
-            Icons.arrow_forward,
-            color: Colors.white,
-          )),
+          icon: Icon(Icons.arrow_forward, color: Colors.white,)),
       tileColor: ColorConstant.tileColor,
     ),
   );
