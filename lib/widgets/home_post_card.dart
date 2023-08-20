@@ -93,11 +93,11 @@ class _HomePostCardTrialState extends State<HomePostCardTrial> {
   }
 
   // TODO: uncomment below code to dispose video
-  // @override
-  // void dispose() {
-  //   videoPlayerController!.dispose();
-  //   super.dispose();
-  // }
+  @override
+  void dispose() {
+    videoPlayerController!.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -199,6 +199,7 @@ class _HomePostCardTrialState extends State<HomePostCardTrial> {
                   isInitialized = true;
                   isPlaying = false;
                 }));
+            videoPlayerController!.pause();
           }
         }
         break;
@@ -241,7 +242,7 @@ class _HomePostCardTrialState extends State<HomePostCardTrial> {
   }
 
   void updateVideoProgress() {
-    if (isInitialized == true) {
+    if (videoPlayerController != null && isInitialized == true) {
       videoPlayerController!.addListener(() {
         setState(() {
           progress = videoPlayerController!.value.position.inMilliseconds /
