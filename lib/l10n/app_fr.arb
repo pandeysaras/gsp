@@ -1,0 +1,11 @@
+{
+  "language": "Français",
+  "chooseLanguage": "Choisissez votre langue",
+  "continueInEnglish": "Continuer en français",
+  "enterEmail": "Entrer votre Email",
+  "enterPassword": "Entrer le mot de passe",
+  "confirmPassword": "Confirmez le mot de passe",
+  "login": "Connexion",
+  "dontHaveAnAccount": "Vous n'avez pas de compte ?"
+
+}

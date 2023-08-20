@@ -1,0 +1,39 @@
+name: gujarati_samaj_paris
+description: A new Flutter project.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.6 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  provider: ^6.0.5
+  carousel_slider: ^4.2.1
+  image_picker: ^1.0.0
+  google_fonts: ^4.0.4
+  flutter_svg: ^2.0.5
+  url_launcher: ^6.1.11
+  intl: ^0.18.0
+  video_player: ^2.7.0
+  visibility_detector: ^0.4.0+2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+
+flutter:
+  generate: true
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/menu_items/
